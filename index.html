@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enguard Solutions | Trucking Safety &amp; Compliance</title>
+<meta name="description" content="Enguard Solutions provides safety management, compliance support, and driver training that help fleets operate with confidence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#15325A;
+    --navy-deep:#0E2440;
+    --blue:#5B9BE8;
+    --blue-tint:#EAF2FC;
+    --slate:#62718A;
+    --line:#E3E7EE;
+    --ink:#1E2A3C;
+    --max:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Inter', 'DejaVu Sans', Arial, sans-serif;
+    color:var(--ink);
+    background:#fff;
+    -webkit-font-smoothing:antialiased;
+  }
+  .display{ font-family:'Archivo', 'DejaVu Sans Condensed', Arial, sans-serif; font-weight:800; }
+  .mono{ font-family:'Space Mono', 'DejaVu Sans Mono', monospace; font-weight:700; }
+  a{ text-decoration:none; color:inherit; }
+  ul{ list-style:none; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+  section{ padding:96px 0; }
+  .eyebrow{ font-size:12px; letter-spacing:4px; color:var(--blue); font-weight:700; margin-bottom:14px; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{ font-size:34px; color:var(--navy); line-height:1.15; }
+  .section-head p{ font-size:15.5px; color:var(--slate); margin-top:14px; line-height:1.6; }
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } * { animation:none !important; transition:none !important; } }
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+  }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:82px; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand .word .l1{ font-size:19px; color:var(--navy); line-height:1; }
+  .brand .word .l1 span{ font-size:10px; font-weight:500; letter-spacing:2.5px; color:var(--slate); margin-left:6px; }
+  .brand .word .l2{ font-size:8.5px; letter-spacing:3px; color:var(--blue); margin-top:3px; }
+  .navlinks{ display:flex; align-items:center; gap:38px; }
+  .navlinks a{ font-size:13.5px; font-weight:600; color:var(--ink); }
+  .navlinks a:hover{ color:var(--blue); }
+  .nav-cta{ background:var(--navy); color:#fff; padding:11px 22px; border-radius:8px; font-size:13px; font-weight:700; }
+  .nav-cta:hover{ background:var(--navy-deep); }
+  .burger{ display:none; width:26px; height:20px; position:relative; cursor:pointer; border:none; background:none; }
+  .burger span{ position:absolute; left:0; width:100%; height:2px; background:var(--navy); transition:transform .25s, opacity .25s; }
+  .burger span:nth-child(1){ top:0; }
+  .burger span:nth-child(2){ top:9px; }
+  .burger span:nth-child(3){ top:18px; }
+  #navtoggle{ display:none; }
+  #navtoggle:checked ~ header .navlinks{ display:flex; }
+  #navtoggle:checked ~ header .burger span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
+  #navtoggle:checked ~ header .burger span:nth-child(2){ opacity:0; }
+  #navtoggle:checked ~ header .burger span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+
+  /* ===== HERO ===== */
+  .hero{ padding:88px 0 80px 0; background:linear-gradient(180deg,#fff 0%, var(--blue-tint) 130%); }
+  .hero .wrap{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center; }
+  .hero h1{ font-size:52px; color:var(--navy); line-height:1.06; letter-spacing:-0.5px; }
+  .hero h1 .accent{ color:var(--blue); }
+  .hero p{ font-size:16.5px; color:var(--slate); margin-top:22px; max-width:480px; line-height:1.6; }
+  .hero-ctas{ display:flex; gap:14px; margin-top:32px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:9px; font-size:13.5px; font-weight:700; letter-spacing:0.3px; }
+  .btn-primary{ background:var(--navy); color:#fff; }
+  .btn-primary:hover{ background:var(--navy-deep); }
+  .btn-ghost{ border:1.5px solid var(--navy); color:var(--navy); }
+  .btn-ghost:hover{ background:var(--navy); color:#fff; }
+
+  .hero-card{
+    background:var(--navy); border-radius:16px; padding:34px;
+    position:relative; overflow:hidden;
+  }
+  .hero-card .chev{ position:absolute; right:-10px; bottom:-14px; width:150px; height:150px; opacity:0.15; }
+  .hero-card .k{ color:#fff; font-size:13px; letter-spacing:2px; opacity:0.7; }
+  .hero-card .row{ display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.14); }
+  .hero-card .row:last-of-type{ border-bottom:none; }
+  .hero-card .row .lab{ color:#fff; font-size:14px; font-weight:600; }
+  .hero-card .row .val{ color:var(--blue); font-size:13px; font-weight:700; }
+  .hero-card .cap{ color:#fff; font-size:24px; font-weight:800; margin-bottom:18px; }
+
+  /* ===== LOGO STRIP ===== */
+  .strip{ padding:26px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .strip .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; }
+  .strip .item{ font-size:12px; color:var(--slate); font-weight:600; display:flex; align-items:center; gap:8px; }
+  .strip .item svg{ flex-shrink:0; }
+
+  /* ===== CARD GRID (What We Do) ===== */
+  .cat-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:22px; }
+  .cat-card{ border:1px solid var(--line); border-radius:12px; padding:26px 24px; transition:box-shadow .2s, transform .2s; }
+  .cat-card:hover{ box-shadow:0 12px 28px rgba(21,50,90,0.1); transform:translateY(-3px); }
+  .cat-card .icon{ width:42px;height:42px;border-radius:10px; background:var(--navy); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+  .cat-card .title{ font-size:15.5px; font-weight:700; color:var(--navy); margin-bottom:12px; }
+  .cat-card li{ font-size:12px; color:#4a5568; padding:6px 0 6px 15px; position:relative; border-bottom:1px solid var(--line); }
+  .cat-card li:last-child{ border-bottom:none; }
+  .cat-card li:before{ content:""; position:absolute; left:0; top:12px; width:5px; height:5px; border-radius:50%; background:var(--blue); }
+
+  /* ===== WHY ===== */
+  .why-sec{ background:var(--blue-tint); }
+  .why-grid{ display:grid; grid-template-columns:repeat(5, 1fr); gap:22px; }
+  .why-card{ text-align:center; background:#fff; border-radius:12px; padding:28px 18px; }
+  .why-card .ic{ width:52px;height:52px;border-radius:50%; border:2px solid var(--blue); margin:0 auto 16px auto; display:flex;align-items:center;justify-content:center; background:#fff;}
+  .why-card .t{ font-size:13px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .why-card .d{ font-size:11.5px; color:var(--slate); line-height:1.5; }
+
+  /* ===== PROCESS ===== */
+  .process{ display:flex; gap:24px; }
+  .step{ flex:1; position:relative; padding:28px 24px; border:1px solid var(--line); border-radius:12px; }
+  .step .num{ font-size:13px; color:var(--blue); margin-bottom:12px; letter-spacing:1px; }
+  .step .t{ font-size:16px; font-weight:700; color:var(--navy); margin-bottom:10px; }
+  .step .d{ font-size:12.5px; color:var(--slate); line-height:1.55; }
+
+  /* ===== PRICING ===== */
+  .pricing-sec{ background:var(--navy-deep); color:#fff; }
+  .pricing-sec .section-head h2{ color:#fff; }
+  .pricing-sec .section-head p{ color:#B9C8DE; }
+  .pricing-sec .eyebrow{ color:var(--blue); }
+  .price-layout{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+  .price-card{
+    border:1.5px solid rgba(255,255,255,0.25); border-radius:14px; padding:32px;
+    background:linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(91,155,232,0.12) 100%);
+  }
+  .price-card .ptxt{ font-size:12px; letter-spacing:2px; color:var(--blue); font-weight:700; }
+  .price-card .pnum{ font-size:48px; font-weight:800; color:#fff; margin-top:14px; font-family:'Archivo',sans-serif; }
+  .price-card .pnum span{ font-size:13px; color:var(--blue); font-weight:700; margin-left:4px; }
+  .price-card .pdesc{ font-size:13px; color:#B9C8DE; margin-top:10px; line-height:1.55; }
+  .price-card .ptag{ display:inline-block; margin-top:16px; border:1px solid rgba(255,255,255,0.3); border-radius:999px; padding:6px 16px; font-size:11.5px; font-weight:700; color:#fff; }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; }
+  .pill{ background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); color:#dbe6f5; font-size:11px; font-weight:600; padding:8px 14px; border-radius:999px; }
+
+  .addl-box{ border:1px solid rgba(255,255,255,0.16); border-radius:14px; padding:8px 26px; }
+  .lrow{ display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.12); }
+  .lrow:last-child{ border-bottom:none; }
+  .lrow .ltxt{ font-size:13px; font-weight:700; color:#fff; }
+  .lrow .lsub{ font-size:11px; color:#8fa9cc; font-weight:400; margin-top:2px;}
+  .lrow .lval{ font-size:12.5px; font-weight:700; color:var(--blue); white-space:nowrap; }
+  .note{ margin-top:20px; font-size:11.5px; color:#8fa9cc; line-height:1.5; }
+  .note b{ color:#fff; }
+
+  /* ===== CTA BAND ===== */
+  .cta-band{ background:var(--blue); }
+  .cta-band .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
+  .cta-band h3{ font-size:26px; color:#fff; font-family:'Archivo',sans-serif; }
+  .cta-band p{ font-size:13.5px; color:#0E2440; opacity:0.75; margin-top:6px; }
+  .cta-band .btn-primary{ background:var(--navy); }
+  .cta-band .btn-primary:hover{ background:var(--navy-deep); }
+
+  /* ===== FOOTER ===== */
+  footer{ background:var(--navy-deep); color:#B9C8DE; padding:64px 0 0 0; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.1); }
+  .foot-brand .word .l1{ font-size:19px; color:#fff; }
+  .foot-brand .word .l1 span{ font-size:10px; font-weight:500; letter-spacing:2.5px; color:#8fa9cc; margin-left:6px; }
+  .foot-brand .word .l2{ font-size:8.5px; letter-spacing:3px; color:var(--blue); margin-top:3px; }
+  .foot-brand .brand{ margin-bottom:16px; }
+  .foot-brand p{ font-size:12.5px; line-height:1.6; max-width:280px; }
+  .foot-col h4{ font-size:11.5px; letter-spacing:1.5px; color:#fff; margin-bottom:16px; }
+  .foot-col li{ margin-bottom:11px; }
+  .foot-col a{ font-size:12.5px; color:#B9C8DE; }
+  .foot-col a:hover{ color:var(--blue); }
+  .foot-bottom{ padding:26px 0 32px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  .foot-bottom .tag{ font-style:italic; font-size:12.5px; color:#8fa9cc; }
+  .foot-bottom .copy{ font-size:11.5px; color:#6f88ac; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .cat-grid{ grid-template-columns:1fr 1fr; }
+    .why-grid{ grid-template-columns:1fr 1fr 1fr; }
+    .price-layout{ grid-template-columns:1fr; }
+    .process{ flex-direction:column; }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width: 640px){
+    section{ padding:64px 0; }
+    .hero{ padding:56px 0; }
+    .hero h1{ font-size:36px; }
+    .section-head h2{ font-size:26px; }
+    .cat-grid{ grid-template-columns:1fr; }
+    .why-grid{ grid-template-columns:1fr 1fr; }
+    .foot-grid{ grid-template-columns:1fr; gap:32px; }
+    .navlinks{ display:none; position:absolute; top:82px; left:0; right:0; background:#fff; flex-direction:column; padding:20px 32px; gap:20px; border-bottom:1px solid var(--line); }
+    .burger{ display:block; }
+    .cta-band .wrap{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="navtoggle">
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top">
+      <svg width="40" height="40" viewBox="0 0 70 70"><rect x="1" y="1" width="68" height="68" rx="16" fill="#15325A"/><path d="M22 20 L38 35 L22 50" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M38 20 L54 35 L38 50" stroke="#5B9BE8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <div class="word">
+        <div class="l1 display">ENGUARD<span>SOLUTIONS</span></div>
+        <div class="l2 mono">SAFE. SMART. READY.</div>
+      </div>
+    </a>
+    <ul class="navlinks">
+      <li><a href="#what-we-do">What We Do</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+    </ul>
+    <label class="burger" for="navtoggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 class="display">Safe Operations.<br><span class="accent">Smart Decisions.</span><br>Ready for the Road.</h1>
+        <p>Enguard Solutions provides safety management, compliance support, and driver training that help fleets operate with confidence.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contact">Get In Touch</a>
+          <a class="btn btn-ghost" href="#pricing">View Plans</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <svg class="chev" viewBox="0 0 70 70"><path d="M22 20 L38 35 L22 50" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M38 20 L54 35 L38 50" stroke="#5B9BE8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="cap display">Standard Package</div>
+        <div class="row"><div class="lab">DQ &amp; driver files</div><div class="val">Included</div></div>
+        <div class="row"><div class="lab">CSA / SMS monitoring</div><div class="val">Included</div></div>
+        <div class="row"><div class="lab">Monthly compliance report</div><div class="val">Included</div></div>
+        <div class="row"><div class="lab">Pricing</div><div class="val">Contact us</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="wrap">
+      <div class="item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Audit-ready documentation</div>
+      <div class="item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><circle cx="10.5" cy="10.5" r="6"/><path d="M19 19l-4-4" stroke-linecap="round"/></svg> Ongoing monitoring</div>
+      <div class="item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><rect x="6" y="4" width="12" height="17" rx="1.5"/><path d="M9 3.5h6v2H9z"/><path d="M9 13l2 2 4-4"/></svg> Reduced compliance risk</div>
+      <div class="item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 14.5c.4 1 1.4 1.6 2.6 1.6 1.5 0 2.6-.8 2.6-2 0-1.4-1.3-1.8-2.8-2.2-1.3-.3-2.4-.8-2.4-2.1 0-1.1 1-1.9 2.5-1.9 1.2 0 2.1.5 2.5 1.4M12 7v1.4M12 15.6V17"/></svg> Affordable for growing fleets</div>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <section id="what-we-do">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow mono">WHAT WE DO</div>
+        <h2 class="display">Everything your fleet needs to stay compliant.</h2>
+        <p>One partner for driver files, vehicle records, monitoring, and reporting &mdash; instead of juggling spreadsheets and reminders on your own.</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <div class="title">Driver Compliance</div>
+          <ul>
+            <li>DQ file management &amp; document tracking</li>
+            <li>Employment &amp; safety performance verification</li>
+            <li>Driver training assignment &amp; tracking</li>
+            <li>Annual driver performance reviews</li>
+            <li>New driver onboarding</li>
+          </ul>
+        </div>
+        <div class="cat-card">
+          <div class="icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 16V8a1 1 0 0 1 1-1h9v9"/><path d="M13 11h4l3 3v2h-2"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div>
+          <div class="title">Vehicle &amp; Equipment</div>
+          <ul>
+            <li>Vehicle &amp; equipment record keeping</li>
+            <li>Registration tracking</li>
+            <li>Inspection documentation</li>
+          </ul>
+        </div>
+        <div class="cat-card">
+          <div class="icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 19V9M9 19V5M15 19v-7M21 19V11"/></svg></div>
+          <div class="title">Risk &amp; Monitoring</div>
+          <ul>
+            <li>Violation &amp; suspension monitoring</li>
+            <li>SMS / CSA score tracking</li>
+            <li>DOT audit assistance</li>
+            <li>DataQ submissions for contested violations</li>
+          </ul>
+        </div>
+        <div class="cat-card">
+          <div class="icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="6" y="4" width="12" height="17" rx="1.5"/><path d="M9 3.5h6v2H9z"/><path d="M9 11h6M9 14h6M9 17h3"/></svg></div>
+          <div class="title">Insurance &amp; Reporting</div>
+          <ul>
+            <li>Insurance compliance support</li>
+            <li>Monthly fleet compliance reports</li>
+            <li>IFTA quarterly management</li>
+            <li>Safety meetings &amp; training sessions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why-us" class="why-sec">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow mono">WHY WORK WITH US</div>
+        <h2 class="display">Compliance handled, so you can run your business.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="t">Audit-Ready Documentation</div>
+          <div class="d">Every driver and vehicle file kept current and ready to hand over.</div>
+        </div>
+        <div class="why-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><rect x="6" y="4" width="12" height="17" rx="1.5"/><path d="M9 3.5h6v2H9z"/><path d="M9 13l2 2 4-4"/></svg></div>
+          <div class="t">Reduced Compliance Risk</div>
+          <div class="d">Violations, suspensions, and scores monitored before they become problems.</div>
+        </div>
+        <div class="why-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><path d="M4 4v16h16M8 4v13M14 4v13" stroke-linecap="round"/></svg></div>
+          <div class="t">Organized Files &amp; Records</div>
+          <div class="d">One place for driver, vehicle, and insurance documentation.</div>
+        </div>
+        <div class="why-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><circle cx="10.5" cy="10.5" r="6"/><path d="M19 19l-4-4" stroke-linecap="round"/></svg></div>
+          <div class="t">Ongoing Monitoring</div>
+          <div class="d">A monthly report on fleet status, upcoming expirations, and action items.</div>
+        </div>
+        <div class="why-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B9BE8" stroke-width="2.3"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 14.5c.4 1 1.4 1.6 2.6 1.6 1.5 0 2.6-.8 2.6-2 0-1.4-1.3-1.8-2.8-2.2-1.3-.3-2.4-.8-2.4-2.1 0-1.1 1-1.9 2.5-1.9 1.2 0 2.1.5 2.5 1.4M12 7v1.4M12 15.6V17"/></svg></div>
+          <div class="t">Affordable for Growing Fleets</div>
+          <div class="d">Straightforward monthly pricing that scales as your fleet grows.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow mono">HOW IT WORKS</div>
+        <h2 class="display">Getting started is simple.</h2>
+      </div>
+      <div class="process">
+        <div class="step">
+          <div class="num mono">01</div>
+          <div class="t">Onboard your fleet</div>
+          <div class="d">We review your trucks, drivers, and current files, and set up your account.</div>
+        </div>
+        <div class="step">
+          <div class="num mono">02</div>
+          <div class="t">We manage compliance</div>
+          <div class="d">Files stay current, scores get monitored, and violations get tracked &mdash; every month.</div>
+        </div>
+        <div class="step">
+          <div class="num mono">03</div>
+          <div class="t">You stay audit-ready</div>
+          <div class="d">A monthly report and organized files mean you're never caught off guard.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing-sec">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:40px;">
+        <div class="eyebrow mono">PRICING</div>
+        <h2 class="display">Plans built around your fleet.</h2>
+        <p>Every fleet is different in size and needs &mdash; reach out and we'll put together a plan and a quote that fits yours.</p>
+      </div>
+      <div class="price-layout">
+        <div class="price-card">
+          <div class="ptxt">STANDARD SAFETY MANAGEMENT PACKAGE</div>
+          <div class="pdesc" style="margin-top:14px; font-size:14px;">All the essential safety and compliance services you need &mdash; handled for you, every month.</div>
+          <div class="ptag">Fleets of 5&ndash;15 trucks</div>
+          <div class="pill-row">
+            <div class="pill">DQ File Management</div>
+            <div class="pill">Employment Verification</div>
+            <div class="pill">Truck &amp; Equipment Files</div>
+            <div class="pill">Violation Monitoring</div>
+            <div class="pill">Driver Training</div>
+            <div class="pill">Annual Reviews</div>
+            <div class="pill">SMS / CSA Monitoring</div>
+            <div class="pill">Insurance Support</div>
+            <div class="pill">Monthly Report</div>
+          </div>
+        </div>
+        <div class="addl-box">
+          <div class="lrow">
+            <div><div class="ltxt">IFTA Management</div><div class="lsub">Quarterly reports</div></div>
+          </div>
+          <div class="lrow">
+            <div><div class="ltxt">DataQ Submissions</div><div class="lsub">Per case, contested violations</div></div>
+          </div>
+          <div class="lrow">
+            <div><div class="ltxt">DOT Audit Assistance</div><div class="lsub">Full audit prep &amp; support</div></div>
+          </div>
+          <div class="lrow">
+            <div><div class="ltxt">New Driver Onboarding</div><div class="lsub">Per driver</div></div>
+          </div>
+          <div class="lrow">
+            <div><div class="ltxt">Safety Meetings / Training</div><div class="lsub">Per session</div></div>
+          </div>
+          <a href="#contact" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:22px;">Request Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" id="contact" style="padding:56px 0;">
+    <div class="wrap">
+      <div>
+        <h3 class="display">Ready to get started?</h3>
+        <p>Reach out and we'll walk you through how Enguard can support your fleet.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:info@enguardsolutions.com">Get In Touch</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top">
+        <svg width="36" height="36" viewBox="0 0 70 70"><rect x="1" y="1" width="68" height="68" rx="16" fill="#FFFFFF"/><path d="M22 20 L38 35 L22 50" stroke="#15325A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M38 20 L54 35 L38 50" stroke="#5B9BE8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="word">
+          <div class="l1 display">ENGUARD<span>SOLUTIONS</span></div>
+          <div class="l2 mono">SAFE. SMART. READY.</div>
+        </div>
+      </a>
+      <p>Safety management, compliance support, and driver training that help fleets operate with confidence.</p>
+    </div>
+    <div class="foot-col">
+      <h4 class="mono">COMPANY</h4>
+      <ul>
+        <li><a href="#what-we-do">What We Do</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4 class="mono">SERVICES</h4>
+      <ul>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#what-we-do">Driver Compliance</a></li>
+        <li><a href="#what-we-do">Risk &amp; Monitoring</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4 class="mono">CONTACT</h4>
+      <ul>
+        <li><a href="mailto:info@enguardsolutions.com">info@enguardsolutions.com</a></li>
+        <li><a href="https://www.enguardsolutions.com">www.enguardsolutions.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <div class="tag">"Helping fleets operate with confidence."</div>
+    <div class="copy">&copy; 2026 Enguard Solutions. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
